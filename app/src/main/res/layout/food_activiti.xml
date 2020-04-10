@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:id="@+id/search"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:id="@+id/list"
+        android:divider="@null" />
+
+
+    <Button android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="6"
+        android:id="@+id/butt_retern"
+        android:text="← Назад" android:textSize="25pt"
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimary"/>
+</LinearLayout>

@@ -1,0 +1,43 @@
+package com.example.myapplication;
+
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.squareup.picasso.Picasso;
+import java.util.ArrayList;
+
+
+public class MyAdapter extends ArrayAdapter<Food> {
+
+    public MyAdapter(Context context, ArrayList arr) {
+        super(context, R.layout.food_list_adapter, arr);
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        final Food food = getItem(position);
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.food_list_adapter, null);
+        }
+
+// Заполняем адаптер
+        ((TextView) convertView.findViewById(R.id.name)).setText(food.name);
+        Picasso.with(getContext()).load(food.url).into((ImageView) convertView.findViewById(R.id.picher_food));
+
+        return convertView;
+    }
+    String getXE (int position){
+        Food food1 = getItem(position);
+        String xe = food1.xe;
+        return xe;
+    }
+
+}
+
