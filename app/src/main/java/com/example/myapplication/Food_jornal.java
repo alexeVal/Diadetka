@@ -22,14 +22,14 @@ public class Food_jornal extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.food_activiti);
 
         ListView listView;
-        SearchView searchView;
+
 
         ArrayList<Food> food = new ArrayList<Food>();
         MyAdapter adapter = new MyAdapter(this,food);
         Food_db db = new Food_db(this);
 
          listView = (ListView) findViewById(R.id.list);
-         searchView = (SearchView) findViewById(R.id.search);
+         SearchView searchView = (SearchView) findViewById(R.id.search);
 
         listView.setAdapter(adapter);
         Button button = (Button)findViewById(R.id.butt_retern);
