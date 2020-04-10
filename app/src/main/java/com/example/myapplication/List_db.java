@@ -39,9 +39,9 @@ public class List_db {
 
     public int update(Lister md) {
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_TIME, md.Time);
-        cv.put(COLUMN_TEXT, md.Text);
-        return mDataBase.update(TABLE_NAME, cv, COLUMN_ID + " = ?",new String[] { String.valueOf(md.id)});
+        cv.put(COLUMN_TIME, md.getTime());
+        cv.put(COLUMN_TEXT, md.getText());
+        return mDataBase.update(TABLE_NAME, cv, COLUMN_ID + " = ?",new String[] { String.valueOf(md.getId())});
     }
 
     public void deleteAll() {

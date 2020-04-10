@@ -42,10 +42,10 @@ public class Food_db {
 
     public int update(Food md) {
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_NAME, md.name);
-        cv.put(COLUMN_URL, md.url);
-        cv.put(COLUMN_XE, md.xe);
-        return mDataBase.update(TABLE_NAME, cv, COLUMN_ID + " = ?",new String[] { String.valueOf(md.id)});
+        cv.put(COLUMN_NAME, md.getName());
+        cv.put(COLUMN_URL, md.getUrl());
+        cv.put(COLUMN_XE, md.getXe());
+        return mDataBase.update(TABLE_NAME, cv, COLUMN_ID + " = ?",new String[] { String.valueOf(md.getId())});
     }
 
     public void deleteAll() {

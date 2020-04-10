@@ -24,8 +24,6 @@ public class Jornal extends AppCompatActivity {
 
     final int REQUEST_CODE=101;
 
-
-
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
 
@@ -66,7 +64,7 @@ public class Jornal extends AppCompatActivity {
                 }
                 if(count == 3){
 
-                    String text = list_adapter.getItem(position).Text;
+                    String text = list_adapter.getItem(position).getText();
 
                     lastPosition = position;
 
@@ -90,11 +88,9 @@ public class Jornal extends AppCompatActivity {
             }
         });
 
-
         butt_ret.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(Jornal.this, MainActivity.class);
                 startActivity(intent);
             }

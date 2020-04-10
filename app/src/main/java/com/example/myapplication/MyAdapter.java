@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,15 +27,20 @@ public class MyAdapter extends ArrayAdapter<Food> {
         }
 
 // Заполняем адаптер
-        ((TextView) convertView.findViewById(R.id.name)).setText(food.name);
-        Picasso.with(getContext()).load(food.url).into((ImageView) convertView.findViewById(R.id.picher_food));
+        ((TextView) convertView.findViewById(R.id.name)).setText(food.getName());
+        Picasso.with(getContext()).load(food.getUrl()).into((ImageView) convertView.findViewById(R.id.picher_food));
 
         return convertView;
     }
     String getXE (int position){
         Food food1 = getItem(position);
-        String xe = food1.xe;
+        String xe = food1.getXe();
         return xe;
+    }
+    String getName (int position){
+        Food food1 = getItem(position);
+        String name = food1.getName();
+        return name;
     }
 
 }
