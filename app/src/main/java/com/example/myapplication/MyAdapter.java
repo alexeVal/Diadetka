@@ -34,13 +34,11 @@ public class MyAdapter extends ArrayAdapter<Food> {
     }
     String getXE (int position){
         Food food1 = getItem(position);
-        String xe = food1.getXe();
-        return xe;
+        return food1.getXe();
     }
     String getName (int position){
         Food food1 = getItem(position);
-        String name = food1.getName();
-        return name;
+        return food1.getName();
     }
 
 }

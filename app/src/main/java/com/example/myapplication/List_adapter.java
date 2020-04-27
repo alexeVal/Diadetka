@@ -5,11 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
 public class List_adapter extends ArrayAdapter<Lister> {
@@ -29,10 +25,10 @@ public class List_adapter extends ArrayAdapter<Lister> {
 
 // Заполняем адаптер
 
-        TextView textView = (TextView) convertView.findViewById(R.id.TXTtime);
-        TextView timeView = (TextView) convertView.findViewById(R.id.TXTtext);
-        textView.setText(lister.Text);
-        timeView.setText(lister.Time);
+        TextView textView = convertView.findViewById(R.id.TXTtime);
+        TextView timeView = convertView.findViewById(R.id.TXTtext);
+        textView.setText(lister.getText());
+        timeView.setText(lister.getTime());
 
         return convertView;
     }

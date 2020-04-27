@@ -21,15 +21,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
-        butt1 = (ImageView) findViewById(R.id.butt1);
-        butt2 = (ImageView) findViewById(R.id.butt2);
-        butt3 = (ImageView) findViewById(R.id.butt3);
+        butt1 = findViewById(R.id.butt1);
+        butt2 = findViewById(R.id.butt2);
+        butt3 = findViewById(R.id.butt3);
 
         butt1.setImageResource(R.drawable.med2);
         butt2.setImageResource(R.drawable.food2);
         butt3.setImageResource(R.drawable.jornal2);
 
-        ImageView imageView =(ImageView) findViewById(R.id.img1);
+        ImageView imageView = findViewById(R.id.img1);
         imageView.setImageResource(R.drawable.bear);
 
 

@@ -14,12 +14,10 @@
         <activity android:name=".Calculator"/>
         <activity android:name=".Food_jornal"/>
         <activity android:name=".Jornal"/>
-
         <activity android:name=".Add_list"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

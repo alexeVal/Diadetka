@@ -29,7 +29,7 @@
                 android:id="@+id/butt1"
                 android:layout_width="10dp"
                 android:layout_height="45pt"
-                android:layout_weight="1" />
+                android:layout_weight="1"/>
 
             <ImageView
                 android:id="@+id/butt2"

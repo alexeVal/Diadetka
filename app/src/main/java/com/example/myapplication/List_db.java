@@ -5,8 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import java.util.ArrayList;
+import android.util.Log;
 
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class List_db {
 
@@ -21,6 +27,8 @@ public class List_db {
     private static final int NUM_COLUMN_ID = 0;
     private static final int NUM_COLUMN_TIME = 1;
     private static final int NUM_COLUMN_TEXT = 2;
+
+    String month,minute,day,hour;
 
 
     SQLiteDatabase mDataBase;
@@ -66,7 +74,7 @@ public class List_db {
 
         Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
 
-        ArrayList<Lister> arr = new ArrayList<Lister>();
+        ArrayList<Lister> arr = new ArrayList();
 
         mCursor.moveToFirst();
 
@@ -115,9 +123,52 @@ public class List_db {
         }
         return id;
     }
+    String getStringDate(){
+
+        DateFormat timeFormat = new SimpleDateFormat("HH:mm");
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM");
+        Date date = new Date();
+        String time = timeFormat.format(date);
+        String da = dateFormat.format(date);
+        Log.w("txt",da + " " + time);
+        return da + " " + time ;
+    }
+
+     public String getTextForTime (){
+
+        String text = "0";
+
+         Cursor mCursor = mDataBase.query(TABLE_NAME,
+                 null,
+                 null,
+                 null,
+                 null,
+                 null,
+                 null);
+
+         mCursor.moveToFirst();
+
+         if (!mCursor.isAfterLast()) {
+
+             do {
+
+                 String Time = mCursor.getString(NUM_COLUMN_TIME);
+
+                 if (Time.equals(getStringDate())) {
+
+                     text = mCursor.getString(NUM_COLUMN_TEXT);
+
+                     break;
+                 }
+
+             } while (mCursor.moveToNext());
+         }
+         return text;
+
+     }
 
 
-    private class OpenHelper extends SQLiteOpenHelper {
+    private static class OpenHelper extends SQLiteOpenHelper {
 
         OpenHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);

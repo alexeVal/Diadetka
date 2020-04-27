@@ -24,15 +24,15 @@ public class Food_jornal extends AppCompatActivity implements View.OnClickListen
         ListView listView;
 
 
-        ArrayList<Food> food = new ArrayList<Food>();
+        ArrayList<Food> food = new ArrayList();
         MyAdapter adapter = new MyAdapter(this,food);
         Food_db db = new Food_db(this);
 
-         listView = (ListView) findViewById(R.id.list);
-         SearchView searchView = (SearchView) findViewById(R.id.search);
+         listView = findViewById(R.id.list);
+         SearchView searchView = findViewById(R.id.search);
 
         listView.setAdapter(adapter);
-        Button button = (Button)findViewById(R.id.butt_retern);
+        Button button = findViewById(R.id.butt_retern);
         button.setOnClickListener(this);
 
     }

@@ -1,6 +1,6 @@
 package com.example.myapplication;
 
-import android.app.AlarmManager;
+
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+
 
 public class Jornal extends AppCompatActivity {
 
@@ -20,7 +20,7 @@ public class Jornal extends AppCompatActivity {
 
     List_db db;
 
-    Notification notification;
+    NotificationHelp notification;
 
     final int REQUEST_CODE=101;
 
@@ -33,23 +33,29 @@ public class Jornal extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+
+
         Intent intent=new Intent(this,MyReceiver.class);
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),REQUEST_CODE,intent,PendingIntent.FLAG_ONE_SHOT);
 
-        notification = new Notification(getApplicationContext());
+        notification = new NotificationHelp(getApplicationContext());
 
-        db = new List_db(this);
+        db = new List_db(getApplicationContext());
 
-        listView = (ListView)findViewById(R.id.lister);
+        listView = findViewById(R.id.lister);
 
         final List_adapter list_adapter = new List_adapter(this,db.selectAll());
 
+        list_adapter.clear();
+
+        list_adapter.addAll(db.selectAll());
+
         listView.setAdapter(list_adapter);
 
-        Button butt_ret = (Button)findViewById(R.id.returnJornal);
+        Button butt_ret = findViewById(R.id.returnJornal);
 
-        Button butt_add = (Button)findViewById(R.id.add_butt);
+        Button butt_add = findViewById(R.id.add_butt);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -68,7 +74,7 @@ public class Jornal extends AppCompatActivity {
 
                     lastPosition = position;
 
-                    listView = (ListView) findViewById(R.id.lister);
+                    listView = findViewById(R.id.lister);
 
                     DateFormat df = new SimpleDateFormat("dd MMM yyyy, HH:mm");
 
@@ -80,7 +86,7 @@ public class Jornal extends AppCompatActivity {
 
                     count = 0;
 
-                    notification.showNote("Напоминание удалено","",Notification.PENSIL);
+                    notification.showNote("Напоминание удалено","",NotificationHelp.PENSIL);
 
                 }
 

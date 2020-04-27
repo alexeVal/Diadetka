@@ -5,9 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class Food_db {
 
@@ -70,7 +68,7 @@ public class Food_db {
     public ArrayList<Food> selectAll() {
         Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
 
-        ArrayList<Food> arr = new ArrayList<Food>();
+        ArrayList<Food> arr = new ArrayList();
         mCursor.moveToFirst();
         if (!mCursor.isAfterLast()) {
             do {
@@ -86,8 +84,8 @@ public class Food_db {
 
     public ArrayList<Food> search(String qery) {
 
-        long id = 0;
-        ArrayList<Food> searchList = new ArrayList<Food>();
+        long id;
+        ArrayList<Food> searchList = new ArrayList();
 
         Cursor mCursor = mDataBase.query(TABLE_NAME,
                 null,
@@ -112,7 +110,7 @@ public class Food_db {
     }
 
 
-    private class OpenHelper extends SQLiteOpenHelper {
+    private static class OpenHelper extends SQLiteOpenHelper {
 
         OpenHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
