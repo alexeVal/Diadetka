@@ -12,6 +12,12 @@ public class Food {
         this.xe = xe;
     }
 
+    public Food(String name,String xe) {
+        this.name = name;
+        this.url = url;
+        this.xe = xe;
+    }
+
     public String getName() {
         return name;
     }

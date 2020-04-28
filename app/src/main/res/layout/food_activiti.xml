@@ -22,7 +22,8 @@
         android:layout_width="match_parent"
         android:layout_weight="6"
         android:id="@+id/butt_retern"
-        android:text="← Назад" android:textSize="25pt"
+        android:text="← Назад"
+        android:textSize="25pt"
         android:textColor="#ffffff"
         android:background="@color/colorPrimary"/>
 </LinearLayout>

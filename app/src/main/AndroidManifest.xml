@@ -14,6 +14,7 @@
         <activity android:name=".Calculator"/>
         <activity android:name=".Food_jornal"/>
         <activity android:name=".Jornal"/>
+        <activity android:name=".Food_list"/>
         <activity android:name=".Add_list"/>
         <activity android:name=".MainActivity">
             <intent-filter>

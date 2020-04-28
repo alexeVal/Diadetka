@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 //by AlexeyVal 2020
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -15,10 +14,12 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TimePicker;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Calendar;
 
 
-public class Add_list extends Activity {
+public class Add_list extends AppCompatActivity {
 
     String month,day,hour,minute;
     TimePicker timePicker;
