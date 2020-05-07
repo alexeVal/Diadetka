@@ -3,18 +3,15 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:textSize="25pt"
-        android:text="Экран2"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:id="@+id/txt1"/>
+     <ListView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_weight="20"
+         android:id="@+id/shugarView" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="2"
         android:id="@+id/Etxt1"
         android:textSize="20pt"
@@ -23,25 +20,26 @@
         android:inputType="phone"
         />
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="2"
         android:background="@color/colorPrimary"
         android:textColor="#ffffff"
         android:textSize="25pt"
-        android:text="Расчитать"
-        android:id="@+id/butt1"/>
+        android:text="Записать"
+        android:onClick="addShugar"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="2pt"/>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="2"
         android:background="@color/colorPrimary"
         android:textColor="#ffffff"
         android:textSize="25pt"
         android:text="← Назад"
-        android:id="@+id/butt2"/>
+        android:onClick="backClick"/>
 </LinearLayout>

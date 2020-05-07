@@ -27,7 +27,7 @@ public class MyAdapter extends ArrayAdapter<Food> {
         }
 
 // Заполняем адаптер
-        ((TextView) convertView.findViewById(R.id.name)).setText(food.getName());
+        ((TextView) convertView.findViewById(R.id.name)).setText(food.getName() + "\n" + food.getXe());
         Picasso.with(getContext()).load(food.getUrl()).into((ImageView) convertView.findViewById(R.id.picher_food));
 
         return convertView;

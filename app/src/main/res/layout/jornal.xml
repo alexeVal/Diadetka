@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ListView
@@ -17,7 +18,8 @@
         android:layout_weight="3"
         android:id="@+id/add_butt"
         android:textSize="10pt"
-        android:text="Добавить заметку"/>
+        android:text="Добавить заметку"
+        android:onClick="addClick"/>
 
     <Button
         android:layout_width="match_parent"
@@ -27,6 +29,7 @@
         android:background="@color/colorPrimary"
         android:textColor="#ffffff"
         android:textSize="25pt"
-        android:text="← Назад"/>
+        android:text="← Назад"
+        android:onClick="returnClick"/>
 
 </LinearLayout>

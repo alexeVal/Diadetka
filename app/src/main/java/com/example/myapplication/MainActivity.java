@@ -3,59 +3,64 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.widget.ImageView;
+import android.webkit.WebView;
 
 public class MainActivity extends AppCompatActivity {
-
-    ImageView  butt1;
-    ImageView  butt2;
-    ImageView  butt3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+    }
 
-        butt1 = findViewById(R.id.butt1);
-        butt2 = findViewById(R.id.butt2);
-        butt3 = findViewById(R.id.butt3);
+    public  void  toMed(View view){
+        Intent intent = new Intent(MainActivity.this,Calculator.class);
+        startActivity(intent);
+        finish();
+    }
 
-        butt1.setImageResource(R.drawable.med2);
-        butt2.setImageResource(R.drawable.food2);
-        butt3.setImageResource(R.drawable.jornal2);
+    public  void  tofood(View view){
+        Intent intent = new Intent(MainActivity.this,Food_list.class);
+        startActivity(intent);
+        finish();
+    }
 
-        ImageView imageView = findViewById(R.id.img1);
-        imageView.setImageResource(R.drawable.bear);
+    public  void  toJornal(View view){
+        Intent intent = new Intent(MainActivity.this,Jornal.class);
+        startActivity(intent);
+        finish();
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-        butt1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Calculator.class);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        switch (id){
+            case R.id.seting:
+                Intent intent = new Intent(MainActivity.this,Setings.class);
                 startActivity(intent);
-            }
-        });
+                return  true;
 
-        butt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Food_list.class);
-                startActivity(intent);
-            }
-        });
+            case R.id.about:
 
-        butt3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Jornal.class);
-                startActivity(intent);
-            }
-        });
+                return  true;
+
+            case R.id.exit:
+                finish();
+                return  true;
+
+        }
+      return super.onOptionsItemSelected(item);
     }
 }
 

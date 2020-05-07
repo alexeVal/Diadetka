@@ -3,19 +3,23 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import androidx.appcompat.app.AppCompatActivity;
-import java.util.ArrayList;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class Food_jornal extends AppCompatActivity implements View.OnClickListener {
 
     ListView listView;
     Food_list_db food_list_db;
+    SearchView searchView;
+    Application_vk application_vk = new Application_vk();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,20 +28,25 @@ public class Food_jornal extends AppCompatActivity implements View.OnClickListen
 
         setContentView(R.layout.food_activiti);
 
+        getSupportActionBar().hide();
+
         food_list_db = new Food_list_db(getApplicationContext());
-
-        ArrayList<Food> food = new ArrayList();
-
-        final MyAdapter adapter = new MyAdapter(this,food_list_db.selectAll());
 
         Food_db db = new Food_db(getApplicationContext());
 
-         listView = findViewById(R.id.list);
-         SearchView searchView = findViewById(R.id.search);
+        final MyAdapter adapter = new MyAdapter(this,db.selectAll());
 
-         db.insert("Печенье сахарное","https://cloud.mail.ru/public/3v1k/3VF6G7hrC" ,"2-4 штуки");
-         db.insert("Яблоко красное","https://cloud.mail.ru/public/5m5y/3tR3TS2eu" ,"2-4 штуки");
-         db.insert("Сухари","https://cloud.mail.ru/public/3QzS/4DLiPXeqZ" ,"50-60 грамм");
+         listView = findViewById(R.id.list);
+
+         searchView = findViewById(R.id.search);
+
+         db.deleteAll();
+
+         db.insert("Яблоко","https://avatars.mds.yandex.net/get-pdb/918543/7e32c556-5b07-41c8-b3f8-1f25d1810450/s1200?webp=false","2 штуки");
+
+         adapter.clear();
+
+         adapter.addAll(db.selectAll());
 
         listView.setAdapter(adapter);
 
@@ -47,24 +56,26 @@ public class Food_jornal extends AppCompatActivity implements View.OnClickListen
 
                 String name = adapter.getName(position);
                 String xe = adapter.getXE(position);
-                food_list_db.insert(name,xe);
-
+                food_list_db.insert(name,xe,getStringDate());
+                application_vk.sendMSG(getStringDate()+"\n"+ "Новая запись в дневник питания: " + name + "\n" + "Одна хлебная единица : " + xe);
             }
         });
+    }
 
-        Button button = findViewById(R.id.butt_retern);
-
-        button.setOnClickListener(this);
-
+    String getStringDate(){
+        DateFormat timeFormat = new SimpleDateFormat("HH:mm");
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM");
+        Date date = new Date();
+        String time = timeFormat.format(date);
+        String da = dateFormat.format(date);
+        return da + " " + time ;
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
         Intent intent = new Intent(Food_jornal.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
-
-
-
 }
 

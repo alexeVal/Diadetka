@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import java.util.ArrayList;
 
 public class Food_db {
@@ -82,11 +83,10 @@ public class Food_db {
         return arr;
     }
 
-    public ArrayList<Food> search(String qery) {
-
+    public ArrayList<Long> search(String qery) {
         long id;
-        ArrayList<Food> searchList = new ArrayList();
 
+        ArrayList<Long> searchList = new ArrayList();
         Cursor mCursor = mDataBase.query(TABLE_NAME,
                 null,
                 null,
@@ -102,7 +102,7 @@ public class Food_db {
                 String Text = mCursor.getString(NUM_COLUMN_NAME);
                 if (Text.contains(qery)) {
                     id = mCursor.getLong(NUM_COLUMN_ID);
-                    searchList.add(select(id));
+                    searchList.add(id);
                 }
             } while (mCursor.moveToNext());
         }

@@ -15,9 +15,7 @@ import android.widget.ScrollView;
 import android.widget.TimePicker;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.Calendar;
-
 
 public class Add_list extends AppCompatActivity {
 
@@ -41,23 +39,31 @@ public class Add_list extends AppCompatActivity {
 
             textE = findViewById(R.id.list_txt);
             button = findViewById(R.id.add_butt);
-            list_db= new List_db(getApplicationContext());
             datePicker = findViewById(R.id.dateP);
             timePicker = findViewById(R.id.timeP);
+            list_db = new List_db(this);
             scrol = findViewById(R.id.scrollView1);
             checkBox = findViewById(R.id.chekShow);
+            checkBox2 = findViewById(R.id.chekMark);
             alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         }
 
         public void onClick(View view){
 
-            list_db.insert(getStringSetupDate(),textE.getText().toString());
+        int isRed = 0;
+
+        if(checkBox2.isChecked()){
+            isRed = 1;
+        }
+
+        list_db.insert(getStringSetupDate(),textE.getText().toString(),isRed);
+
             if(checkBox.isChecked()) {
                 setAlarm();
             }
             Intent intent = new Intent(Add_list.this, Jornal.class);
             startActivity(intent);
-
+            finish();
         }
 
         void setAlarm (){

@@ -5,48 +5,40 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 
-public class List_db {
-
-    private static final String DATABASE_NAME = "diadetka_list.db";
-    private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_NAME = "list_show";
+public class Shugar_db {
+    private static final String DATABASE_NAME = "diadetka_shugar.db";
+    private static final int DATABASE_VERSION = 2;
+    private static final String TABLE_NAME = "levels";
 
     private static final String COLUMN_ID = "id";
-    private static final String COLUMN_TIME = "Time";
-    private static final String COLUMN_TEXT = "Text";
-    private static final String COLUMN_ISRED = "isred";
+    private static final String COLUMN_LEVEL = "level";
+    private static final String COLUMN_TIME = "time";
 
-    private static final int NUM_COKUMN_ID = 0;
-    private static final int NUM_COLUMN_TIME = 1;
-    private static final int NUM_COLUMN_TEXT = 2;
-    private static final int NUM_COLUMN_ISRED = 3;
-
+    private static final int NUM_COLUMN_ID = 0;
+    private static final int NUM_COLUMN_LEVEL = 1;
+    private static final int NUM_COLUMN_TIME = 2;
 
     SQLiteDatabase mDataBase;
 
-    public List_db(Context context) {
+    public Shugar_db (Context context) {
         OpenHelper mOpenHelper = new OpenHelper(context);
         mDataBase = mOpenHelper.getWritableDatabase();
     }
 
-    public long insert(String time, String text, int isRed) {
+    public long insert(double level,String time) {
         ContentValues cv = new ContentValues();
+        cv.put(COLUMN_LEVEL, level);
         cv.put(COLUMN_TIME, time);
-        cv.put(COLUMN_TEXT, text);
-        cv.put(COLUMN_ISRED, isRed);
         return mDataBase.insert(TABLE_NAME, null, cv);
     }
 
-    public int update(Lister md) {
+    public int update(Shugar md) {
         ContentValues cv = new ContentValues();
+        cv.put(COLUMN_LEVEL, md.getLevel());
         cv.put(COLUMN_TIME, md.getTime());
-        cv.put(COLUMN_TEXT, md.getText());
-        cv.put(COLUMN_ISRED, md.getIsred());
-
         return mDataBase.update(TABLE_NAME, cv, COLUMN_ID + " = ?", new String[]{String.valueOf(md.getId())});
     }
 
@@ -58,19 +50,17 @@ public class List_db {
         mDataBase.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
     }
 
-    public Lister select(long id) {
+    public Shugar select(long id) {
 
         Cursor mCursor = mDataBase.query(TABLE_NAME, null, COLUMN_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
 
         mCursor.moveToFirst();
+        double level = mCursor.getDouble(NUM_COLUMN_LEVEL);
         String time = mCursor.getString(NUM_COLUMN_TIME);
-        String text = mCursor.getString(NUM_COLUMN_TEXT);
-        int isRed = mCursor.getInt(NUM_COLUMN_ISRED);
-
-        return new Lister(time, text, isRed);
+        return new Shugar(level,time);
     }
 
-    public long searchID(String text) {
+    public long searchID(double levelS) {
 
         long id = 0;
 
@@ -88,11 +78,11 @@ public class List_db {
 
             do {
 
-                String Text = mCursor.getString(NUM_COLUMN_TEXT);
+                double level = mCursor.getDouble(NUM_COLUMN_LEVEL);
 
-                if (Text.equals(text)) {
+                if (level == levelS) {
 
-                    id = mCursor.getLong(NUM_COKUMN_ID);
+                    id = mCursor.getLong(NUM_COLUMN_ID);
 
                     break;
                 }
@@ -103,54 +93,21 @@ public class List_db {
     }
 
 
-    public ArrayList<Lister> selectAll() {
+    public ArrayList<Shugar> selectAll() {
         Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
 
-        ArrayList<Lister> arr = new ArrayList();
+        ArrayList<Shugar> arr = new ArrayList();
         mCursor.moveToFirst();
         if (!mCursor.isAfterLast()) {
             do {
-                long id = mCursor.getLong(NUM_COKUMN_ID);
+                long id = mCursor.getLong(NUM_COLUMN_ID);
+                double level = mCursor.getDouble(NUM_COLUMN_LEVEL);
                 String time = mCursor.getString(NUM_COLUMN_TIME);
-                String text = mCursor.getString(NUM_COLUMN_TEXT);
-                int isRed = mCursor.getInt(NUM_COLUMN_ISRED);
-                arr.add(new Lister(time, text, isRed));
+                arr.add(new Shugar(level,time));
 
             } while (mCursor.moveToNext());
         }
         return arr;
-    }
-    public String getTextForTime(String time){
-
-        String txt = "0";
-
-        Cursor mCursor = mDataBase.query(TABLE_NAME,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null);
-
-        mCursor.moveToFirst();
-
-        if (!mCursor.isAfterLast()) {
-
-            do {
-
-                String Time = mCursor.getString(NUM_COLUMN_TIME);
-
-                if (Time.equals(time)) {
-
-                    txt = mCursor.getString(NUM_COLUMN_TEXT);
-
-                    break;
-                }
-
-            } while (mCursor.moveToNext());
-        }
-
-        return txt;
     }
 
     private static class OpenHelper extends SQLiteOpenHelper {
@@ -162,9 +119,7 @@ public class List_db {
         public void onCreate(SQLiteDatabase db) {
             String query = "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    COLUMN_TIME + " TEXT, " +
-                    COLUMN_TEXT + " TEXT," +
-                    COLUMN_ISRED + " INTEGER)";
+                    COLUMN_LEVEL + " REAL," + COLUMN_TIME + " TEXT)";
             db.execSQL(query);
         }
 
@@ -174,4 +129,5 @@ public class List_db {
             onCreate(db);
         }
     }
+
 }

@@ -9,7 +9,8 @@
         android:id="@+id/img1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="1"/>
+        android:background="@drawable/bear"
+        android:layout_weight="3"/>
 
     <FrameLayout
         android:layout_width="fill_parent"
@@ -29,19 +30,25 @@
                 android:id="@+id/butt1"
                 android:layout_width="10dp"
                 android:layout_height="45pt"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:background="@drawable/med2"
+                android:onClick="toMed"/>
 
             <ImageView
                 android:id="@+id/butt2"
                 android:layout_width="10dp"
                 android:layout_height="45pt"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@drawable/food2"
+                android:onClick="tofood"/>
 
             <ImageView
                 android:id="@+id/butt3"
                 android:layout_width="10dp"
                 android:layout_height="45pt"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@drawable/jornal2"
+                android:onClick="toJornal"/>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>
