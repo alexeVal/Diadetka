@@ -1,0 +1,74 @@
+{
+{"name":"Хлеб с отрубями","par1":"https://sun1-19.userapi.com/z1eXvjG5xn8K8RD5NQH6W5Ve_bKZIYe_0-8xVg/pnSDk_NZZek.jpg","par2":"30 грамм"}
+{"name":"Черный хлеб ","par1":"https://sun2-4.userapi.com/X56gvS6iBVmJJfnen4hxh-eyhuS4dc33ORjyQg/Nt_eGAHn1MQ.jpg","par2":"25 грамм"}
+{"name":"Серый хлеб","par1":"https://sun2-3.userapi.com/TlAqQrrSa_wzLXhsjS5yoO6gOJ8-n5ip-dn3Qg/Jgh6bx2DB_Q.jpg","par2":"20 грамм"}
+{"name":"Панировочные сухари","par1":"https://sun1-24.userapi.com/4dutStct4XYQ2z1kqMe41iGHL6l9YMRO9KQsMg/eVRiDpIXVg0.jpg","par2":"15 грамм"}
+{"name":"Крекеры","par1":"https://sun2-4.userapi.com/fXeT2ZzXQsCAqkmlHcNQzchUU5hEAJzrH8SxHw/RiwLPHzmOT4.jpg","par2":"15 грамм"} 
+{"name":"Бородинский хлеб","par1":"https://sun1-85.userapi.com/ijkxE4rOK23SUAEJPxEV6JeQuwGl0FkYmxuLdQ/Q421xaDAQUs.jpg","par2":"15 грамм"}
+{"name":"Сдобная булка","par1":"https://sun1-97.userapi.com/1h_Hp9XT5FC6gLiytPZvqDR6sNBKS0_uRgKw2A/ItZFqJSbC7M.jpg","par2":"20 грамм"} 
+{"name":"Замороженные пельмени и вареники с творогом","par1":"https://sun1-96.userapi.com/ars-O2uqYE58K1ZPExbRN6QAj8hUtHwiRjyMfA/ISh6mCTEqW8.jpg","par2":"50 грамм"} 
+{"name":"Большой блин","par1":"https://sun1-84.userapi.com/5gn0V0GTOXQGEOTHE3UiKvBL0fDGh_M45MJ4Jw/Dg6HEuBtfGE.jpg","par2":"30 грамм"}
+{"name":"Оладьи","par1":"https://sun1-17.userapi.com/QYkii0gsVUlf_vLsfKOE9adCuA_lbA5UKUJjrQ/cpVmvyTAdHM.jpg","par2":"30 грамм"} 
+{"name":"Ватрушка","par1":"https://sun1-24.userapi.com/luNM4Y0V96UHWmIAiA61JTBf3oTvZbFRXEA0AA/gM0Ve_JCzCo.jpg","par2":"50 грамм"} 
+{"name":"Вафли","par1":"https://sun1-99.userapi.com/rsNpZM-FYEAdefufwBjDPL3-pvfq6KzpE09lNg/IEuVaOnGU7Q.jpg","par2":"2 штуки"}
+{"name":"Сырые макароны","par1":"https://sun1-83.userapi.com/bKB0noazCOmfjpssfAcR7yu7mkvgRLUltDyQkg/T_Ff-JRbd3w.jpg","par2":"15 грамм"} 
+{"name":"Вареные макароны","par1":"https://sun2-3.userapi.com/3MVHWee1GO3ADqSnJJoB-HrFQzph35KFAgTQRQ/p9vlvM9QCyA.jpg","par2":"50 грамм"}
+{"name":"Пшеничные отруби","par1":"https://sun2-3.userapi.com/PugmaNEYUHV3xiQb5xnkdygKC9EuNUXuAt74CQ/Vk2iV6tGxgs.jpg","par2":"12 столовых ложек"}
+{"name":"Кукуруза","par1":"https://sun1-92.userapi.com/obRNfXd0ouxVkWpcCr02kngTTK4tkhApYeYAnA/lNXLJU-8GkU.jpg","par2":"100 грамм"}
+{"name":"Каша","par1":"https://sun2-4.userapi.com/YSvKqeOTTCpeHhm1nVALBXRJQOKbdGDGpO1jDQ/ggrB9XgUYDA.jpg","par2":"50 грамм"}
+{"name":"Любая крупа (неприготовленная)","par1":"https://sun1-22.userapi.com/_3zc0UuuscRMHYnaZBy2rbff2wNuFsf1h-A9og/S1MdY_jGgnc.jpg","par2":"15 грамм"}
+{"name":"Попкорн","par1":"https://sun1-23.userapi.com/MiM-F1irEY7hfrTYKUetAEUbTdRxLMkO-enlKQ/Pl6jbxL8Y7w.jpg","par2":"15 грамм"} 
+{"name":"Консервированная кукуруза","par1":"https://sun1-88.userapi.com/Ax2eEgfF7GTIzKPMVfRV5BIG8gfsW0b0RFtsxA/EEvQXmgTmCA.jpg","par2":"60 грамм"} 
+{"name":"Молоко, ряженка, молоко топленое и сливки","par1":"https://sun1-28.userapi.com/8EhcmGTNESxpqn3UsEQCi3PhVKg87zUkH-p0Jw/eygDVfTol7U.jpg","par2":"1 стакан"}
+{"name":"Кефир","par1":"https://sun1-47.userapi.com/XrJkjjYXrDYehy5cnxwSlKrw-8tYsd7s2A8uSg/ZYWfRbkq1WQ.jpg","par2":"1 стакан"} 
+{"name":"Мороженое","par1":"https://sun1-20.userapi.com/oNPJGtrjr4EZ53AApCJPVOcrS3svlPYN6V8Nwg/7naQK54c2e4.jpg","par2":"60 грамм"}
+{"name":"Творожная масса (сладкая, без добавок)","par1":"https://sun1-28.userapi.com/8aclQM_GjAcJEfo7DqeUXfCR7wTwhqNflvohIw/-3qEM0jQQZ4.jpg","par2":"100 грамм"}
+{"name":"Творожная масса с изюмом","par1":"https://sun1-19.userapi.com/NLuQnl2dhZaOqJihoZpEqyUThAyQc934ug9InQ/mGsdbPYLgOY.jpg","par2":"40 грамм"}
+{"name":"Сырник","par1":"https://sun1-94.userapi.com/ROHYkAJQCCiZVZRNslb-LDSPmmEG6qdkWefG5w/hfs51RgYD_4.jpg","par2":"1 штука"}
+{"name":"Картофельное пюре ","par1":"https://sun1-22.userapi.com/2GxhkMTlYIK-20Hxyp_mGJQitZlxMDUWy_d0eA/w2rT-IPJ73Y.jpg","par2":"90 грамм"}
+{"name":"Картошка сырая","par1":"https://sun1-93.userapi.com/p3dwrFUyaLLpLIdS0kHZDcgkBscXUZYr02N_qQ/6eBDjSuJC-c.jpg","par2":"75 грамм"} 
+{"name":"Жареная картошка","par1":"https://sun1-93.userapi.com/C5nNWW4dlbL079DmJP3WKy-2n4W1aytNliDcnQ/0PdbF3L2Sg0.jpg","par2":"35 грамм"}
+{"name":"Морковь","par1":"https://sun1-88.userapi.com/FLiKTi88K_lphcMYm3GaHDbjzxn8C0t3ag94pA/JP56En1bx7Q.jpg","par2":"200 грамм"}
+{"name":"Чипсы","par1":"https://sun1-30.userapi.com/vSsno8LbeWPUi7zi-fbFOR_QWDbWiF-aeTT9IA/8dwzgQKDUnU.jpg","par2":"25 грамм"}
+{"name":"Свекла","par1":"https://sun1-83.userapi.com/rLd-goDYY_6MWjtbBFahw7IhOZxKl2sUAoYl8A/ulwjfoQBexg.jpg","par2":"150 грамм"} 
+{"name":"Горох","par1":"https://sun2-3.userapi.com/4pJGcal2zx7xvICBAVTYPVeklGBRzr9mHcUhnw/7XVN6nul3Uo.jpg","par2":"100 грамм"}
+{"name":"Вареная фасоль","par1":"https://sun1-83.userapi.com/p-2dloF58ln8k2wiCoqpONum4yQ4czNb7UnmRQ/bFzWXv2V_uE.jpg","par2":"50 грамм"} 
+{"name":"Варенные бобы","par1":"https://sun1-30.userapi.com/UzaC8_UKbob6PG_f1-NujM0ZF9GzoQTG9dOmwg/fUf1P5Y24Vk.jpg","par2":"50 грамм"} 
+{"name":"Тыква","par1":"https://sun1-99.userapi.com/R9YZtS_iCTc_Lg2M5A3K8QWwRv-SQdZy4YgBqA/83wwSQzNtaI.jpg","par2":"200 грамм"}
+{"name":"Орехи","par1":"https://sun1-19.userapi.com/-9wyZSV0sEQkSuUOGMXT0uiCrDPgZoQ7FATy9w/x5q4GkutIy8.jpg","par2":"90 грамм"} 
+{"name":"Топинамбур","par1":"https://sun1-23.userapi.com/23URbCz9B_RjA3UwI_bLMql7dQ9QzPMa8L5e2w/wA5-Ij0ldi0.jpg","par2":"70 грамм"}
+{"name":"Апельсин","par1":"https://sun1-91.userapi.com/0xXczz2-ISZkRbAypGEqlq1w7-IsNKwjIrj3ig/nYPmdJqSTjc.jpg","par2":"150 грамм"}
+{"name":"Лимон","par1":"https://sun1-90.userapi.com/alB5BrgR1n_jUAv8k5hVMq5ArFLTs7mUBItQ-w/hw4ujGGYTaM.jpg","par2":"270 грамм"}
+{"name":"Арбуз","par1":"https://sun1-96.userapi.com/cX4MTOTmmiRe35OSNk2IJG_J95FRg6V5b0d23w/Y8fR6-QK1to.jpg","par2":"270 грамм"}
+{"name":"Ананас","par1":"https://sun1-14.userapi.com/ZqxSdbfMc6x7gcnTszv5pFb6p6DZPWK8JEu_tg/xzfBvccqRZ0.jpg","par2":"140 грамм"}
+{"name":"Айва","par1":"https://sun1-97.userapi.com/xtMhOgXpNbrVAbqL2dP_y4mT3zqfcz5LXXi4Yg/_jspXP83PHw.jpg","par2":"140 грамм"}
+{"name":"Абрикосы","par1":"https://sun1-15.userapi.com/01-NxkOrv2ul3iIGwoVAdHQqFvh0VJeP6P1BdA/OZIij5_EP7Y.jpg","par2":"110 грамм"} 
+{"name":"Брусника","par1":"https://sun1-85.userapi.com/IkYoLwuAZbjB5lz2uMkmFMZgwOMRhiuTSqq5Nw/_sDMDQEPhFw.jpg","par2":"140 грамм"}
+{"name":"Банан","par1":"https://sun1-91.userapi.com/uhbmfyZNc39hTWXlpEZQiTw7tG9gPuyQv6nu0w/6QS6HuCq-xw.jpg","par2":"70 грамм"} 
+{"name":"Вишня","par1":"https://sun2-4.userapi.com/tiSafih8Xcvk9gIIM1vkafV7MObkXVBzQXv0xA/YuM12nBdRHs.jpg","par2":"90 грамм"}
+{"name":"Виноград","par1":"https://sun1-17.userapi.com/NYMxE79T1lwPi1cxtJK-jStxc025jtIcPFlCcw/w1xkCTirnRs.jpg","par2":"70 грамм"}
+{"name":"Дыня","par1":"https://sun1-88.userapi.com/rfH2z6d9jAN-hxWVLLtylg9dIOVGn-LFqlia4A/75wwTxajDYE.jpg","par2":"100 грамм"}
+{"name":"Гранат","par1":"https://sun1-93.userapi.com/LH1OtbO1wwlX8e3jHnsMccyrB1QLOGfYEZ3-CA/bVcCgYTTJKk.jpg","par2":"170 грамм"}
+{"name":"Киви","par1":"https://sun1-89.userapi.com/ey_HcaAyuk7B_IyeXvuWIGp4myNP9rd0t9OQxw/ujbEhSRZ1dU.jpg","par2":"110 грамм"}
+{"name":"Крыжовник","par1":"https://sun1-93.userapi.com/3Rud6-TTyJBeA3SMfDm-DuARBCow39myQNLLPw/ckKqAckFLOE.jpg","par2":"120 грамм"} 
+{"name":"Малина","par1":"https://sun1-22.userapi.com/WmRezeldV2H2adkXzeuudh7ufnHFgeQJXnPPJA/ue_FyuBul2Y.jpg","par2":"160 грамм"}
+{"name":"Черешня","par1":"https://sun1-95.userapi.com/lW9wZEh5JODpBNeJRcgiSusMOEwu-dacITG6ug/UOO26rXCp4s.jpg","par2":"100 грамм"}
+{"name":"Яблоко","par1":"https://sun1-29.userapi.com/WDTalLZtvoBid7kG_dzQ1llomdVXjQ4406cJ7Q/SJ-ZDx_xMLE.jpg","par2":"90 грамм"} 
+{"name":"Инжир","par1":"https://sun1-92.userapi.com/f1S-MYW-rMPgVRQ1cRzEIF_6ZrTR3EmmcbtP5Q/Jbs__90vQ44.jpg","par2":"15 грамм"}
+{"name":"Финики","par1":"https://sun1-19.userapi.com/q-6wu8u-o6WXwzxXvpVRqCdplLWTJ5PNZqBfyA/vZj1VsKkICs.jpg","par2":"15 грамм"}
+{"name":"Яблоки","par1":"https://sun1-83.userapi.com/AKiHdUKACB__FBWfPnw6EaQZiCvPOLqllsFo-A/RYndrJb_sMg.jpg","par2":"20 грамм"} 
+{"name":"Курага","par1":"https://sun2-3.userapi.com/S8kLGTdxZbPUUQs5YzO5dWvHF4OekBCuMDAKKw/yoVtFypSC2g.jpg","par2":"15 грамм"}
+{"name":"Чернослив","par1":"https://sun2-4.userapi.com/MwuZlOISbCjXf8Gn0-5ZwAP3BoNzZcEfibveJQ/aebZ9oKMEfE.jpg","par2":"20 грамм"}
+{"name":"Вишневый сок","par1":"https://sun2-4.userapi.com/cFy8Do_J6eFj5IyVrkLF-3gOclw8MfIOwGzf-Q/bpfdwakkuqc.jpg","par2":"90 грамм"} 
+{"name":"Апельсиновый сок","par1":"https://sun2-4.userapi.com/L5rnxli2klSqSQUHIm97MtVNJ5_0Q00wZ6hQHw/yeiL748mMn0.jpg","par2":"110 грамм"} 
+{"name":"Капустный сок","par1":"https://sun1-92.userapi.com/hmpV0MUtppBfnjKt-HgkJ2inTywkxAZ7fguKBA/rCBdGcH0PKo.jpg","par2":"125 грамм"}
+{"name":"Виноградный сок","par1":"https://sun1-87.userapi.com/O0feCTxALlmCK6JLBSKmpkjm6ab0brfhs08IaA/P_ZqgBKE0Eg.jpg","par2":"70 грамм"} 
+{"name":"Томатный сок","par1":"https://sun1-24.userapi.com/cZS5bjUakjHsHfNiJ8OeyrxEzcYjv5sloku1RA/kma7ebYTQZE.jpg","par2":"300 мл"} 
+{"name":"Грушевый сок","par1":"https://sun1-98.userapi.com/htwe2H5hk8CUgZHJZdd-tqVV9Dv6plhLkNOKtg/ggBeO4MRSIg.jpg","par2":"100 грамм"}
+{"name":"Грейпфрутовый сок","par1":"https://sun1-84.userapi.com/KG_iEZs92e_0HEx3fFy87ayEYPnFzeFvXrGk0w/txs7ZQTVIDY.jpg","par2":"140 грамм"}
+{"name":"Квас","par1":"https://sun1-24.userapi.com/hYDkkJkCaWYgRTsd71xYTRcP3Zod2pTD-6AQag/SJ0q14H0r7A.jpg","par2":"250 мл"}
+{"name":"Яблочный сок","par1":"https://sun1-90.userapi.com/FzL9JhDRMdnqGccV0VfHmH5YPWiEOD8WLgzg_g/1GrhR5Ft0QU.jpg","par2":"100 грамм"}
+{"name":"Мед","par1":"https://sun1-85.userapi.com/j6jBnCD5dVIout2X_-h4PBQiGG8DHviCjgx-9w/2nP2tR4rBqc.jpg","par2":"12 грамм"}
+{"name":"Шоколад","par1":"https://sun2-3.userapi.com/vVASRkFcrJZfe15_K7tcHD6oCWOLqbOqubbRvQ/1LlJqh-pR8Q.jpg","par2":"20 грамм"} 
+{"name":"Сахар","par1":"https://sun2-3.userapi.com/rCFyqLu_7BMdIGbN4Jh-9_B7r2YnSQeeCH98cQ/1UzlgbTe-lA.jpg","par2":"10 грамм"}
+}
