@@ -14,12 +14,14 @@ import java.util.Date;
 
 public class Calculator extends AppCompatActivity {
 
-    Shugar_db shugar_db;
-    EditText editText;
-    Shugar_adapter shugar_adapter;
-    int lastPosition,count;
-    NotificationHelp notification;
-    Application_vk application_vk = new Application_vk();
+    private Shugar_db shugar_db;
+    private EditText editText;
+    private Shugar_adapter shugar_adapter;
+    private int lastPosition,count;
+    private NotificationHelp notification;
+    private Application_vk application_vk = new Application_vk();
+    private double level;
+    private VK_ID_base vkIdBase;
 
     @Override
     public void onCreate( Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class Calculator extends AppCompatActivity {
         ListView shugar_list = (ListView)findViewById(R.id.shugarView);
         shugar_list.setAdapter(shugar_adapter);
         notification = new NotificationHelp(this);
+        vkIdBase = new VK_ID_base(this);
 
         shugar_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -44,9 +47,9 @@ public class Calculator extends AppCompatActivity {
 
     public void addShugar(View view){
         try {
-            double level = Double.parseDouble(editText.getText().toString());
+            level = Double.parseDouble(editText.getText().toString());
             shugar_db.insert(level,getStringDate());
-            application_vk.sendMSG(getStringDate() + "\n"+ "Новая запись в дневник уровня сахара : " + level);
+            application_vk.sendMSG(getStringDate() + "\n"+ "Новая запись в дневник уровня сахара : " + level,vkIdBase.selectAll());
 
         } catch (NumberFormatException e){
             Toast.makeText(this,"Неверный формат ввода! Используй только цифры и знак .",Toast.LENGTH_LONG).show();
@@ -89,7 +92,7 @@ public class Calculator extends AppCompatActivity {
 
             count = 0;
 
-            notification.ShowNotification("Напоминание удалено","",NotificationHelp.PENSIL);
+            Toast.makeText(this,"Запись удалена",Toast.LENGTH_LONG).show();
         }
         lastPosition = position;
     }

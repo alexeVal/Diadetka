@@ -48,15 +48,14 @@ public class NotificationHelp extends Activity {
 
     Context context;
 
-
     public NotificationHelp(Context context) {
         this.context = context;
     }
 
-    static final int PENSIL = R.drawable.pensil;
-    static final int CLOCK = R.drawable.clock;
-    final static String CHANNEL_ID = "DIADETKA_CHANEL";
-    int NOTIFY_ID = 1;
+     static final int PENSIL = R.drawable.pensil;
+     static final int CLOCK = R.drawable.clock;
+    private final static String CHANNEL_ID = "DIADETKA_CHANEL";
+    private int NOTIFY_ID = 1;
 
     NotificationManager notificationManager;
 

@@ -24,7 +24,7 @@ public class Food_db {
     private static final int NUM_COLUMN_URL = 2;
     private static final int NUM_COLUMN_XE = 3;
 
-   SQLiteDatabase mDataBase;
+    SQLiteDatabase mDataBase;
 
     public Food_db(Context context) {
         OpenHelper mOpenHelper = new OpenHelper(context);
@@ -131,4 +131,5 @@ public class Food_db {
             onCreate(db);
         }
     }
+
 }

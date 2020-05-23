@@ -21,7 +21,7 @@ public class MyReceiver extends BroadcastReceiver {
         List_db list_db = new List_db(context);
         NotificationHelp notification = new NotificationHelp(context);
         notification.ShowNotification(list_db.getTextForTime(getStringDate()),"Напоминание",NotificationHelp.CLOCK);
-        Log.d("тест","тест удедомлений !!!!");
+
     }
     String getStringDate(){
         DateFormat timeFormat = new SimpleDateFormat("HH:mm");

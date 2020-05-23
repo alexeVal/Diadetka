@@ -1,29 +1,25 @@
 package com.example.myapplication;
 
 public class Shugar {
-    private int id;
-    private double level;
-    private String time;
+    private  int id;
+    private  String time;
+    private  double lelel;
 
-    public Shugar(double level,String time) {
+    public Shugar(double lelel,String time) {
         this.time = time;
-        this.level = level;
+        this.lelel = lelel;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public double getLevel() {
-        return level;
+        return lelel;
     }
 
-    public void setLevel(double level) {
-        this.level = level;
+    public void setLevel(double lelel) {
+        this.lelel = lelel;
     }
 
     public String getTime() {

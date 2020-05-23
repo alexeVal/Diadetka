@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName;
 
 public class ModelAnswer {
     @SerializedName("response")
-    public int response ;
+    private int response ;
 }

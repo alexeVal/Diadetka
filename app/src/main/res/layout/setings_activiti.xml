@@ -18,18 +18,24 @@
         android:text="При добавлении записи в приложение вам будет отправленно сообщение с информацией. ВНИМАНИЕ! Для работы данной функции необходимо разрешить сообщения сообществу   https://vk.com/public194962243" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/idText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="VK_ID"
         android:inputType="phone" />
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/idView" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Добавить id" />
+        android:text="Добавить id"
+        android:onClick="addID"/>
 
     <CheckBox
         android:id="@+id/checkBox2"

@@ -5,17 +5,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Jornal extends AppCompatActivity {
 
-    ListView listView;
-    List_db db;
-    NotificationHelp notification;
-    List_adapter list_adapter;
+    private ListView listView;
+    private List_db db;
+    private NotificationHelp notification;
+    private List_adapter list_adapter;
 
-    int count = 0;
-    int lastPosition;
+    private int count = 0;
+    private int lastPosition;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState)  {
@@ -55,7 +57,6 @@ public class Jornal extends AppCompatActivity {
            finish();
        }
 
-
        public void addClick(View view) {
            Intent intent = new Intent(Jornal.this, Add_list.class);
            startActivity(intent);
@@ -83,7 +84,7 @@ public class Jornal extends AppCompatActivity {
 
                count = 0;
 
-               notification.ShowNotification("Напоминание удалено","",NotificationHelp.PENSIL);
+               Toast.makeText(this,"Заметка удалена",Toast.LENGTH_LONG).show();
            }
            lastPosition = position;
        }

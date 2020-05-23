@@ -102,7 +102,6 @@ public class List_db {
         return id;
     }
 
-
     public ArrayList<Lister> selectAll() {
         Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
 

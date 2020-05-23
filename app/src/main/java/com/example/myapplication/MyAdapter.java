@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class MyAdapter extends ArrayAdapter<Food> {
 
-    public MyAdapter(Context context, ArrayList arr) {
+    public MyAdapter(Context context, ArrayList<Food> arr) {
         super(context, R.layout.food_list_adapter, arr);
     }
 

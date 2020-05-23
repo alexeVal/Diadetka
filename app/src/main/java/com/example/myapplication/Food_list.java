@@ -3,17 +3,20 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Food_list extends AppCompatActivity {
 
-    Food_list_db food_list_db;
-    EatingFood_Adapter adapter;
-    ListView listView;
-    NotificationHelp notification;
-    int lastPosition,count;
+    private Food_list_db food_list_db;
+    private EatingFood_Adapter adapter;
+    private ListView listView;
+    private NotificationHelp notification;
+    private int lastPosition,count;
 
 
     @Override
@@ -25,6 +28,12 @@ public class Food_list extends AppCompatActivity {
         food_list_db = new Food_list_db(getApplicationContext());
         adapter = new EatingFood_Adapter(getApplicationContext(),food_list_db.selectAll());
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                deleteItem(position);
+            }
+        });
     }
 
     public void deleteItem(int position) {
@@ -34,11 +43,11 @@ public class Food_list extends AppCompatActivity {
         }
         if(count == 3){
 
-            String level = adapter.getItem(position).getName();
+            String Time = adapter.getItem(position).getTime();
 
             lastPosition = position;
 
-            food_list_db.delete(food_list_db.searchID(level));
+            food_list_db.delete(food_list_db.searchID(Time));
 
             adapter.clear();
 
@@ -46,7 +55,7 @@ public class Food_list extends AppCompatActivity {
 
             count = 0;
 
-            notification.ShowNotification("Напоминание удалено","",NotificationHelp.PENSIL);
+            Toast.makeText(this,"Запись удалена",Toast.LENGTH_LONG).show();
         }
         lastPosition = position;
     }

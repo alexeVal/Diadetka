@@ -84,7 +84,7 @@ public class Food_list_db {
         return arr;
     }
 
-    public long searchID(String name) {
+    public long searchID(String time) {
 
         long id = 0;
 
@@ -102,9 +102,9 @@ public class Food_list_db {
 
             do {
 
-                String Name = mCursor.getString(NUM_COLUMN_NAME);
+                String Time = mCursor.getString(NUM_COLUMN_TIME);
 
-                if (Name.equals(name)) {
+                if (Time.equals(time)) {
 
                     id = mCursor.getLong(NUM_COKUMN_ID);
 

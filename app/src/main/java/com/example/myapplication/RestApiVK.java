@@ -4,7 +4,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface RestApi {
+public interface RestApiVK {
         //Анотация какой запрос и на какой путь на сервере отправляем
         @GET("/method/messages.send")
         //Метод с запросом и типом возвращаемого ответа

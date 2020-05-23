@@ -19,17 +19,17 @@ import java.util.Calendar;
 
 public class Add_list extends AppCompatActivity {
 
-    String month,day,hour,minute;
-    TimePicker timePicker;
-    DatePicker datePicker;
-    EditText textE;
-    Button button;
-    List_db list_db;
-    ScrollView scrol;
-    CheckBox checkBox;
-    CheckBox checkBox2;
-    AlarmManager alarmManager;
-    int requestCode = 1;
+    private String month,day,hour,minute;
+    private TimePicker timePicker;
+    private DatePicker datePicker;
+    private EditText textE;
+    private Button button;
+    private List_db list_db;
+    private ScrollView scrol;
+    private CheckBox checkBox;
+    private CheckBox checkBox2;
+    private AlarmManager alarmManager;
+    private int requestCode = 1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
