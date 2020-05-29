@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import java.util.ArrayList;
 
 public class Shugar_db {
@@ -23,54 +22,29 @@ public class Shugar_db {
 
     SQLiteDatabase mDataBase;
 
-    public Shugar_db (Context context) {
+    public Shugar_db (Context context) {       // создать БД
         OpenHelper mOpenHelper = new OpenHelper(context);
         mDataBase = mOpenHelper.getWritableDatabase();
     }
 
-    public long insert(double level,String time) {
+    public long insert(double level,String time) {   //внести запись в БД
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_LEVEL, level);
         cv.put(COLUMN_TIME, time);
         return mDataBase.insert(TABLE_NAME, null, cv);
     }
 
-    public int update(Shugar md) {
-        ContentValues cv = new ContentValues();
-        cv.put(COLUMN_LEVEL, md.getLevel());
-        cv.put(COLUMN_TIME, md.getTime());
-        return mDataBase.update(TABLE_NAME, cv, COLUMN_ID + " = ?", new String[]{String.valueOf(md.getId())});
-    }
 
-    public void deleteAll() {
-        mDataBase.delete(TABLE_NAME, null, null);
-    }
-
-    public void delete(long id) {
+    public void delete(long id) {           // удалить запись
         mDataBase.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
     }
 
-    public Shugar select(long id) {
 
-        Cursor mCursor = mDataBase.query(TABLE_NAME, null, COLUMN_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
-
-        mCursor.moveToFirst();
-        double level = mCursor.getDouble(NUM_COLUMN_LEVEL);
-        String time = mCursor.getString(NUM_COLUMN_TIME);
-        return new Shugar(level,time);
-    }
-
-    public long searchID(double levelS) {
+    public long searchID(double levelS) {      // найти id
 
         long id = 0;
 
-        Cursor mCursor = mDataBase.query(TABLE_NAME,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null);
+        Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
 
         mCursor.moveToFirst();
 
@@ -93,7 +67,7 @@ public class Shugar_db {
     }
 
 
-    public ArrayList<Shugar> selectAll() {
+    public ArrayList<Shugar> selectAll() {   // получить все записи
         Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
 
         ArrayList<Shugar> arr = new ArrayList();
@@ -110,7 +84,7 @@ public class Shugar_db {
         return arr;
     }
 
-    private static class OpenHelper extends SQLiteOpenHelper {
+    private static class OpenHelper extends SQLiteOpenHelper {  // класс создания БД
 
         OpenHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);

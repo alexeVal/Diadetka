@@ -12,19 +12,18 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Calculator extends AppCompatActivity {
+public class Shugar_list extends AppCompatActivity {   // класс истории уровня сахара
 
     private Shugar_db shugar_db;
     private EditText editText;
     private Shugar_adapter shugar_adapter;
     private int lastPosition,count;
-    private NotificationHelp notification;
     private Application_vk application_vk = new Application_vk();
     private double level;
     private VK_ID_base vkIdBase;
 
     @Override
-    public void onCreate( Bundle savedInstanceState) {
+    public void onCreate( Bundle savedInstanceState) {  // создать необходимые объекты и активность
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculator_activiti);
@@ -34,7 +33,6 @@ public class Calculator extends AppCompatActivity {
         shugar_adapter = new Shugar_adapter(this,shugar_db.selectAll());
         ListView shugar_list = (ListView)findViewById(R.id.shugarView);
         shugar_list.setAdapter(shugar_adapter);
-        notification = new NotificationHelp(this);
         vkIdBase = new VK_ID_base(this);
 
         shugar_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -45,7 +43,7 @@ public class Calculator extends AppCompatActivity {
         });
     }
 
-    public void addShugar(View view){
+    public void addShugar(View view){  // добавить запись
         try {
             level = Double.parseDouble(editText.getText().toString());
             shugar_db.insert(level,getStringDate());
@@ -58,13 +56,13 @@ public class Calculator extends AppCompatActivity {
         shugar_adapter.addAll(shugar_db.selectAll());
     }
 
-    public void backClick(View view){
-        Intent intent = new Intent(Calculator.this,MainActivity.class);
+    public void backClick(View view){     // на главный экран
+        Intent intent = new Intent(Shugar_list.this,MainActivity.class);
         startActivity(intent);
         finish();
     }
 
-    String getStringDate(){
+    String getStringDate(){                    // получить текущую дату  время
         DateFormat timeFormat = new SimpleDateFormat("HH:mm");
         DateFormat dateFormat = new SimpleDateFormat("dd.MM");
         Date date = new Date();
@@ -73,7 +71,7 @@ public class Calculator extends AppCompatActivity {
         return da + " " + time ;
     }
 
-    public void deleteItem(int position) {
+    public void deleteItem(int position) {    // удаление записи
 
         if(lastPosition == position){
             count++;

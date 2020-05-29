@@ -19,12 +19,12 @@
         android:background="@color/colorPrimary"
         android:textSize="25pt"
         android:textColor="#ffffff"
-        android:text="Добавить"
+        android:text="@string/add"
         android:layout_weight="4"/>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="10px"/>
+        android:layout_height="1dp"/>
 
     <Button
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
         android:background="@color/colorPrimary"
         android:textSize="25pt"
         android:textColor="#ffffff"
-        android:text="← Назад"
+        android:text="@string/back"
         android:layout_weight="4"/>
 
 </LinearLayout>

@@ -1,6 +1,6 @@
 package com.example.myapplication;
 
-public class VK_ID  {
+public class VK_ID  { // класс описывающий id VK
     private int id;
     private int User_id;
 

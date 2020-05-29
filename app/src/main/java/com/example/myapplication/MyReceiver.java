@@ -12,24 +12,22 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MyReceiver extends BroadcastReceiver {
-
-
+public class MyReceiver extends BroadcastReceiver { //класс приемник тревоги
 
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(Context context, Intent intent) {  // когда пришло время  напоминания
         List_db list_db = new List_db(context);
-        NotificationHelp notification = new NotificationHelp(context);
-        notification.ShowNotification(list_db.getTextForTime(getStringDate()),"Напоминание",NotificationHelp.CLOCK);
-
+        NotificationHelp notification = new NotificationHelp();
+        notification.ShowNotification(list_db.getTextForTime(getStringDate()),"Напоминание",NotificationHelp.CLOCK,context);  // показываем уведомление
     }
-    String getStringDate(){
+
+    String getStringDate(){    // получаем текущую дату и время
         DateFormat timeFormat = new SimpleDateFormat("HH:mm");
         DateFormat dateFormat = new SimpleDateFormat("dd.MM");
         Date date = new Date();
-        String time = timeFormat.format(date);
-        String da = dateFormat.format(date);
-        return da + " " + time ;
+        String tf = timeFormat.format(date);
+        String df = dateFormat.format(date);
+        return df + " " + tf ;
     }
 
 

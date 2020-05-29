@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Shugar_adapter extends ArrayAdapter<Shugar> {
+public class Shugar_adapter extends ArrayAdapter<Shugar> { // адаптер для истории уровня сахара
 
     public Shugar_adapter(Context context, ArrayList arr) {
         super(context, R.layout.list_adapter, arr);

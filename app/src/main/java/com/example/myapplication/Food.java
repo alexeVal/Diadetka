@@ -2,7 +2,7 @@ package com.example.myapplication;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Food {
+public class Food {              // класс описывающий продукты используется для работы c БД продуктов
     @SerializedName("name")
     private String name;
     @SerializedName("par1")

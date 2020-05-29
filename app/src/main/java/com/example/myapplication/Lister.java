@@ -1,6 +1,6 @@
 package com.example.myapplication;
 
-public class Lister {
+public class Lister {  // класс описывающий заметки
 
     private String Time;
     private String Text;

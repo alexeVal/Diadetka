@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
-public class Food_list_db {
+public class Food_list_db { // класс базы данных съеденных продуктов
 
     private static final String DATABASE_NAME = "diadetka_food_list.db";
     private static final int DATABASE_VERSION = 1;
@@ -31,7 +31,7 @@ public class Food_list_db {
         mDataBase = mOpenHelper.getWritableDatabase();
     }
 
-    public long insert(String name,String xe,String time) {
+    public long insert(String name,String xe,String time) {   // внести запись в базу
         ContentValues cv=new ContentValues();
         cv.put(COLUMN_NAME, name);
         cv.put(COLUMN_XE, xe);
@@ -39,34 +39,13 @@ public class Food_list_db {
         return mDataBase.insert(TABLE_NAME, null, cv);
     }
 
-    public int update(EatingFood md) {
-        ContentValues cv = new ContentValues();
-        cv.put(COLUMN_NAME, md.getName());
-        cv.put(COLUMN_XE, md.getXe());
-        cv.put(COLUMN_TIME, md.getTime());
-        return mDataBase.update(TABLE_NAME, cv, COLUMN_ID + " = ?",new String[] { String.valueOf(md.getId())});
-    }
 
-    public void deleteAll() {
-        mDataBase.delete(TABLE_NAME, null, null);
-    }
-
-    public void delete(long id) {
+    public void delete(long id) {        // удалить запись
         mDataBase.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[] { String.valueOf(id) });
     }
 
-    public EatingFood select(long id) {
 
-        Cursor mCursor = mDataBase.query(TABLE_NAME, null, COLUMN_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
-
-        mCursor.moveToFirst();
-        String Name = mCursor.getString(NUM_COLUMN_NAME);
-        String Xe = mCursor.getString(NUM_COLUMN_XE);
-        String time = mCursor.getString(NUM_COLUMN_TIME);
-        return new EatingFood(Name,Xe,time);
-    }
-
-    public ArrayList<EatingFood> selectAll() {
+    public ArrayList<EatingFood> selectAll() {   // получить все записи
         Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
 
         ArrayList<EatingFood> arr = new ArrayList();
@@ -84,7 +63,7 @@ public class Food_list_db {
         return arr;
     }
 
-    public long searchID(String time) {
+    public long searchID(String time) { // метод поиска ид
 
         long id = 0;
 
@@ -117,7 +96,7 @@ public class Food_list_db {
     }
 
 
-    private static class OpenHelper extends SQLiteOpenHelper {
+    private static class OpenHelper extends SQLiteOpenHelper { // класс создания БД
 
         OpenHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);

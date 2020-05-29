@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
-public class EatingFood  {
+public class EatingFood  {   // класс для описания съеденых продуктов (для упрощения работы с БД)
+
     private String xe;
     private String name;
     private String time;

@@ -17,14 +17,20 @@
         android:id="@+id/list"
         android:divider="@null" />
 
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/progres"
+        android:layout_weight="6"/>
 
     <Button
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_weight="6"
-        android:text="← Назад"
+        android:text="@string/back"
         android:textSize="25pt"
         android:textColor="#ffffff"
         android:background="@color/colorPrimary"
-        android:onClick="onClick"/>
+        android:onClick="BackClick"/>
+
 </LinearLayout>

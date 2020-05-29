@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class EatingFood_Adapter extends ArrayAdapter<EatingFood> {
+public class EatingFood_Adapter extends ArrayAdapter<EatingFood> { // класс адаптер для вывода данных на экран
 
 public EatingFood_Adapter (Context context, ArrayList arr) {
         super(context, R.layout.list_adapter, arr);

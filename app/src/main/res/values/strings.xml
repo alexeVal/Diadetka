@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">Diadetka</string>
-    <integer name="com_vk_sdk_AppId">7447874</integer>
+    <string name="back">← Назад</string>
+    <string name="write">Записать</string>
+    <string name="level">Уровень сахара</string>
+    <string name="add">Добавить</string>
+    <string name="add_zam">Добавить заметку</string>
+    <string name="ins_write">Введите заметку</string>
+    <string name="remember">Напомнить</string>
+    <string name="mark">Выделить</string>
+    <string name="add_write">Добавить запись</string>
+    <string name="punkt1">При добавлении записи в приложение вам будет отправленно сообщение с информацией. ВНИМАНИЕ! Для работы данной функции необходимо разрешить сообщения сообществу  https://vk.com/public194962243"</string>
+    <string name="punkt2">Отключить служебные уведомления типа " Запись удалена", "Запись добавлена" и так далее.  Напоминания продолжат работать</string>
+    <string name="note_VK">Уведомления Вконтакте</string>
+    <string name="note_app">Уведомления в приложении</string>
+    <string name="VK_ID">VK_ID</string>
+    <string name="add_id">Добавить id</string>
+    <string name="about">Версия приложения : 1.0 + "\n" + Создано при поддержке Sumsung IT School + "\n" + Валюшко А.И 2020</string>
 </resources>

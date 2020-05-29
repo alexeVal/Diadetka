@@ -5,9 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import java.util.ArrayList;
 
-public class VK_ID_base {
+public class VK_ID_base { // класс БД с id VK
 
         private static final String DATABASE_NAME = "VK_ID.db";
         private static final int DATABASE_VERSION = 1;
@@ -17,44 +19,26 @@ public class VK_ID_base {
         private static final String COLUMN_USERID = "UserID";
 
         private static final int NUM_COLUMN_ID = 0;
-        private static final int NUM_COLUMN_GOALSGUEST = 1;
+        private static final int NUM_COLUMN_VKID = 1;
 
         private SQLiteDatabase mDataBase;
 
-        public VK_ID_base(Context context) {
+        public VK_ID_base(Context context) {  // создать БД
             OpenHelper mOpenHelper = new OpenHelper(context);
             mDataBase = mOpenHelper.getWritableDatabase();
         }
 
-        public long insert(int UserID) {
+        public long insert(int UserID) {        // получить запись
             ContentValues cv = new ContentValues();
             cv.put(COLUMN_USERID, UserID);
             return mDataBase.insert(TABLE_NAME, null, cv);
         }
 
-        public int update(VK_ID md) {
-            ContentValues cv = new ContentValues();
-            cv.put(COLUMN_USERID, md.getUser_id());
-            return mDataBase.update(TABLE_NAME, cv, COLUMN_ID + " = ?", new String[]{String.valueOf(md.getId())});
-        }
-
-        public void deleteAll() {
-            mDataBase.delete(TABLE_NAME, null, null);
-        }
-
-        public void delete(long id) {
+        public void delete(long id) {            // удалить запись
             mDataBase.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
         }
 
-        public VK_ID select(long id) {
-            Cursor mCursor = mDataBase.query(TABLE_NAME, null, COLUMN_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
-
-            mCursor.moveToFirst();
-            int UserId = mCursor.getInt(NUM_COLUMN_GOALSGUEST);
-            return new VK_ID(UserId);
-        }
-
-        public ArrayList<Integer> selectAll() {
+        public ArrayList<Integer> selectAll() {     // получить все записи
             Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
 
             ArrayList<Integer> arr = new ArrayList();
@@ -62,14 +46,29 @@ public class VK_ID_base {
             if (!mCursor.isAfterLast()) {
                 do {
                     long id = mCursor.getLong(NUM_COLUMN_ID);
-                    int UserId = mCursor.getInt(NUM_COLUMN_GOALSGUEST);
+                    int UserId = mCursor.getInt(NUM_COLUMN_VKID);
                     arr.add(UserId);
                 } while (mCursor.moveToNext());
             }
             return arr;
         }
+    public long searchId(int id) {     // получить все записи
+        Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
+        long idw = 0;
+        mCursor.moveToFirst();
+        if (!mCursor.isAfterLast()) {
+            do {
+                int UserId = mCursor.getInt(NUM_COLUMN_VKID);
+                if(id == UserId){
+                    idw = mCursor.getLong(NUM_COLUMN_ID);
+                    Log.d("Тест",Long.toString(idw));
+                }
+            } while (mCursor.moveToNext());
+        }
+        return id;
+    }
 
-        private class OpenHelper extends SQLiteOpenHelper {
+        private class OpenHelper extends SQLiteOpenHelper { // класс создания БД
 
             OpenHelper(Context context) {
                 super(context, DATABASE_NAME, null, DATABASE_VERSION);

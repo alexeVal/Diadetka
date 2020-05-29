@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Calculator"/>
+        <activity android:name=".Shugar_list"/>
         <activity android:name=".Food_jornal"/>
         <activity android:name=".Jornal"/>
         <activity android:name=".Food_list"/>

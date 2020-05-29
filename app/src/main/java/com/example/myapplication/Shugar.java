@@ -1,6 +1,6 @@
 package com.example.myapplication;
 
-public class Shugar {
+public class Shugar {   // класс описывающий уровень сахара
     private  int id;
     private  String time;
     private  double lelel;

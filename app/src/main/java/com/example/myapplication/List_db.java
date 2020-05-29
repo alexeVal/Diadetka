@@ -5,8 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-
 import java.util.ArrayList;
 
 public class List_db {
@@ -28,12 +26,12 @@ public class List_db {
 
     SQLiteDatabase mDataBase;
 
-    public List_db(Context context) {
+    public List_db(Context context) {  // создать БД
         OpenHelper mOpenHelper = new OpenHelper(context);
         mDataBase = mOpenHelper.getWritableDatabase();
     }
 
-    public long insert(String time, String text, int isRed) {
+    public long insert(String time, String text, int isRed) { // добавить запись
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_TIME, time);
         cv.put(COLUMN_TEXT, text);
@@ -41,46 +39,17 @@ public class List_db {
         return mDataBase.insert(TABLE_NAME, null, cv);
     }
 
-    public int update(Lister md) {
-        ContentValues cv = new ContentValues();
-        cv.put(COLUMN_TIME, md.getTime());
-        cv.put(COLUMN_TEXT, md.getText());
-        cv.put(COLUMN_ISRED, md.getIsred());
 
-        return mDataBase.update(TABLE_NAME, cv, COLUMN_ID + " = ?", new String[]{String.valueOf(md.getId())});
-    }
-
-    public void deleteAll() {
-        mDataBase.delete(TABLE_NAME, null, null);
-    }
-
-    public void delete(long id) {
+    public void delete(long id) {  // удалить запись
         mDataBase.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
     }
 
-    public Lister select(long id) {
 
-        Cursor mCursor = mDataBase.query(TABLE_NAME, null, COLUMN_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
-
-        mCursor.moveToFirst();
-        String time = mCursor.getString(NUM_COLUMN_TIME);
-        String text = mCursor.getString(NUM_COLUMN_TEXT);
-        int isRed = mCursor.getInt(NUM_COLUMN_ISRED);
-
-        return new Lister(time, text, isRed);
-    }
-
-    public long searchID(String text) {
+    public long searchID(String text) { // метод поиска ид
 
         long id = 0;
 
-        Cursor mCursor = mDataBase.query(TABLE_NAME,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null);
+        Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
 
         mCursor.moveToFirst();
 
@@ -102,7 +71,7 @@ public class List_db {
         return id;
     }
 
-    public ArrayList<Lister> selectAll() {
+    public ArrayList<Lister> selectAll() {      // получаем все записи
         Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
 
         ArrayList<Lister> arr = new ArrayList();
@@ -119,17 +88,11 @@ public class List_db {
         }
         return arr;
     }
-    public String getTextForTime(String time){
+    public String getTextForTime(String time){   // получаем текст для напоминания
 
         String txt = "0";
 
-        Cursor mCursor = mDataBase.query(TABLE_NAME,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null);
+        Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
 
         mCursor.moveToFirst();
 

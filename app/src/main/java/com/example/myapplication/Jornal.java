@@ -13,22 +13,18 @@ public class Jornal extends AppCompatActivity {
 
     private ListView listView;
     private List_db db;
-    private NotificationHelp notification;
     private List_adapter list_adapter;
-
     private int count = 0;
     private int lastPosition;
 
     @Override
-    protected void onCreate(final Bundle savedInstanceState)  {
+    protected void onCreate(final Bundle savedInstanceState)  {     // создаем активность и необходимые объекты
 
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.jornal);
 
         getSupportActionBar().hide();
-
-        notification = new NotificationHelp(getApplicationContext());
 
         db = new List_db(getApplicationContext());
 
@@ -51,19 +47,19 @@ public class Jornal extends AppCompatActivity {
         });
     }
 
-       public void returnClick(View view) {
+       public void returnClick(View view) {       // на главный экран
            Intent intent = new Intent(Jornal.this, MainActivity.class);
            startActivity(intent);
            finish();
        }
 
-       public void addClick(View view) {
+       public void addClick(View view) {         // на экран добавления
            Intent intent = new Intent(Jornal.this, Add_list.class);
            startActivity(intent);
            finish();
        }
 
-       public void deleteRemember(int position) {
+       public void deleteRemember(int position) {  // метод удаления записи
 
            if(lastPosition == position){
                count++;

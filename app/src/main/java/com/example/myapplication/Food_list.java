@@ -6,21 +6,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Food_list extends AppCompatActivity {
+public class Food_list extends AppCompatActivity {    // класс активности съеденных продуктов
 
     private Food_list_db food_list_db;
     private EatingFood_Adapter adapter;
     private ListView listView;
-    private NotificationHelp notification;
     private int lastPosition,count;
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {    // создание активности и необходиых объектов
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_list_activiti);
@@ -36,20 +34,20 @@ public class Food_list extends AppCompatActivity {
         });
     }
 
-    public void deleteItem(int position) {
+    public void deleteItem(int position) { // удаление записи
 
         if(lastPosition == position){
             count++;
         }
         if(count == 3){
 
-            String Time = adapter.getItem(position).getTime();
+            String Time = adapter.getItem(position).getTime(); // получаем время добавления
 
             lastPosition = position;
 
-            food_list_db.delete(food_list_db.searchID(Time));
+            food_list_db.delete(food_list_db.searchID(Time)); // ищем ид и удаляем запись
 
-            adapter.clear();
+            adapter.clear();  // "Перезагружаем" адаптер
 
             adapter.addAll(food_list_db.selectAll());
 
@@ -60,7 +58,7 @@ public class Food_list extends AppCompatActivity {
         lastPosition = position;
     }
 
-    public  void Clickback (View view){
+    public  void Clickback (View view){  // на главный экран
 
         Intent intent = new Intent(Food_list.this, MainActivity.class);
         startActivity(intent);
@@ -68,8 +66,7 @@ public class Food_list extends AppCompatActivity {
 
     }
 
-    public  void ClickAdd(View view){
-
+    public  void ClickAdd(View view){                // к экрану добавления
         Intent intent = new Intent(Food_list.this, Food_jornal.class);
         startActivity(intent);
         finish();

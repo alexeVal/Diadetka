@@ -18,7 +18,7 @@
         android:layout_weight="3"
         android:id="@+id/add_butt"
         android:textSize="10pt"
-        android:text="Добавить заметку"
+        android:text="@string/add_zam"
         android:onClick="addClick"/>
 
     <Button
@@ -29,7 +29,7 @@
         android:background="@color/colorPrimary"
         android:textColor="#ffffff"
         android:textSize="25pt"
-        android:text="← Назад"
+        android:text="@string/back"
         android:onClick="returnClick"/>
 
 </LinearLayout>

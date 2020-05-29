@@ -11,7 +11,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 
-public class MyAdapter extends ArrayAdapter<Food> {
+public class MyAdapter extends ArrayAdapter<Food> {   // адаптер для списка продуктов
 
     public MyAdapter(Context context, ArrayList<Food> arr) {
         super(context, R.layout.food_list_adapter, arr);
@@ -28,7 +28,7 @@ public class MyAdapter extends ArrayAdapter<Food> {
 
 // Заполняем адаптер
         ((TextView) convertView.findViewById(R.id.name)).setText(food.getName() + "\n" + food.getXe());
-        Picasso.with(getContext()).load(food.getUrl()).into((ImageView) convertView.findViewById(R.id.picher_food));
+        Picasso.with(getContext()).load(food.getUrl()).into((ImageView) convertView.findViewById(R.id.picher_food));  // загружаем изображения в фоновом потоке
 
         return convertView;
     }

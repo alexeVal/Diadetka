@@ -16,7 +16,7 @@
         android:id="@+id/Etxt1"
         android:textSize="20pt"
         android:gravity="center"
-        android:hint="Уровень сахара"
+        android:hint="@string/level"
         android:inputType="phone"
         />
     <Button
@@ -26,7 +26,7 @@
         android:background="@color/colorPrimary"
         android:textColor="#ffffff"
         android:textSize="25pt"
-        android:text="Записать"
+        android:text="@string/write"
         android:onClick="addShugar"/>
 
     <TextView
@@ -40,6 +40,6 @@
         android:background="@color/colorPrimary"
         android:textColor="#ffffff"
         android:textSize="25pt"
-        android:text="← Назад"
+        android:text="@string/back"
         android:onClick="backClick"/>
 </LinearLayout>

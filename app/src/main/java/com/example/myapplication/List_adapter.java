@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-public class List_adapter extends ArrayAdapter<Lister> {
+public class List_adapter extends ArrayAdapter<Lister> {  // адаптер для заметок
 
     public List_adapter(Context context, ArrayList arr) {
         super(context, R.layout.list_adapter, arr);
@@ -24,12 +24,12 @@ public class List_adapter extends ArrayAdapter<Lister> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_adapter, null);
         }
 
-// Заполняем адаптер
+        // Заполняем адаптер
 
         TextView textView = convertView.findViewById(R.id.TXTtext);
         TextView timeView = convertView.findViewById(R.id.TXTtime);
 
-        if (lister.getIsred() == 1){
+        if (lister.getIsred() == 1){                  // если необходмо выделяем текст
             textView.setBackgroundColor(Color.YELLOW);
             timeView.setBackgroundColor(Color.YELLOW);
         } else {

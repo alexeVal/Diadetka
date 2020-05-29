@@ -5,10 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import java.util.ArrayList;
 
-public class Food_db {
+public class Food_db {                  // класс для работы с базой данных продуктов
+
+    // создаем константы для работы с базой данных
 
     private static final String DATABASE_NAME = "diadetka_food.db";
     private static final int DATABASE_VERSION = 1;
@@ -26,12 +27,12 @@ public class Food_db {
 
     SQLiteDatabase mDataBase;
 
-    public Food_db(Context context) {
+    public Food_db(Context context) {  //создаем базу
         OpenHelper mOpenHelper = new OpenHelper(context);
         mDataBase = mOpenHelper.getWritableDatabase();
     }
 
-    public long insert(String name, String url,String xe) {
+    public long insert(String name, String url,String xe) {   // внести запись в базу
         ContentValues cv=new ContentValues();
         cv.put(COLUMN_NAME, name);
         cv.put(COLUMN_URL, url);
@@ -39,36 +40,9 @@ public class Food_db {
         return mDataBase.insert(TABLE_NAME, null, cv);
     }
 
-    public int update(Food md) {
-        ContentValues cv = new ContentValues();
-        cv.put(COLUMN_NAME, md.getName());
-        cv.put(COLUMN_URL, md.getUrl());
-        cv.put(COLUMN_XE, md.getXe());
-        return mDataBase.update(TABLE_NAME, cv, COLUMN_ID + " = ?",new String[] { String.valueOf(md.getId())});
-    }
 
-    public void deleteAll() {
-        mDataBase.delete(TABLE_NAME, null, null);
-    }
-
-    public void delete(long id) {
-        mDataBase.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[] { String.valueOf(id) });
-    }
-
-    public Food select(long id) {
-
-        Cursor mCursor = mDataBase.query(TABLE_NAME, null, COLUMN_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
-
-        mCursor.moveToFirst();
-        String Name = mCursor.getString(NUM_COLUMN_NAME);
-        String Url = mCursor.getString(NUM_COLUMN_URL);
-        String Xe = mCursor.getString(NUM_COLUMN_XE);
-        return new Food(Name,Url,Xe);
-    }
-
-    public ArrayList<Food> selectAll() {
+    public ArrayList<Food> selectAll() {             // получить все записи из базы
         Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
-
         ArrayList<Food> arr = new ArrayList();
         mCursor.moveToFirst();
         if (!mCursor.isAfterLast()) {
@@ -83,34 +57,15 @@ public class Food_db {
         return arr;
     }
 
-    public ArrayList<Long> search(String qery) {
-        long id;
-
-        ArrayList<Long> searchList = new ArrayList();
-        Cursor mCursor = mDataBase.query(TABLE_NAME,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null);
-
-        mCursor.moveToFirst();
-
-        if (!mCursor.isAfterLast()) {
-            do {
-                String Text = mCursor.getString(NUM_COLUMN_NAME);
-                if (Text.contains(qery)) {
-                    id = mCursor.getLong(NUM_COLUMN_ID);
-                    searchList.add(id);
-                }
-            } while (mCursor.moveToNext());
+    public boolean checkBase(){   // проверить наполненость базы
+        boolean check = false;
+        if(selectAll().size() == 0){
+           check = true;
         }
-        return searchList;
+        return check;
     }
 
-
-    private static class OpenHelper extends SQLiteOpenHelper {
+    private static class OpenHelper extends SQLiteOpenHelper {        // класс создания БД
 
         OpenHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);

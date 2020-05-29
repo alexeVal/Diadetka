@@ -14,9 +14,6 @@
             android:layout_weight="1"
             android:id="@+id/name"
             android:gravity="center"
-            android:textSize="44px"/>
-
-
-
+            android:textSize="15sp"/>
 
 </LinearLayout>

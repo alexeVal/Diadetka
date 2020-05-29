@@ -3,16 +3,15 @@ package com.example.myapplication;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.net.Uri;
-import android.os.Environment;
-import android.util.Log;
 import java.io.File;
 
-    public class FileLoading   {
+    public class FileLoading   { // класс для загрузки с Диска
 
         private String Url;
         private String filename;
         private Context context;
         private DownloadManager manager;
+        private File file;
 
         public FileLoading(String url, String filename, Context context) {
             Url = url;
@@ -20,24 +19,19 @@ import java.io.File;
             this.context = context;
         }
 
-       private File file;
-
         public void StartLoading(){
-            Log.d("статус","Старт");
             file =new File(context.getExternalCacheDir(),filename);
-            DownloadManager.Request request=new DownloadManager.Request(Uri.parse(Url))
-                    .setTitle("Dummy File")// Title of the Download Notification
-                    .setDescription("Downloading")// Description of the Download Notification
-                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)// Visibility of the download Notification
-                    .setDestinationUri(Uri.fromFile(file));// Uri of the destination file
-            Log.d("Скачивание",request.toString());
+            DownloadManager.Request request=new DownloadManager.Request(Uri.parse(Url)) // готовим запрос к Download manager
+                    .setTitle("Загрузка базы данных")
+                    .setDescription("Downloading...")
+                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+                    .setDestinationUri(Uri.fromFile(file));
             if(manager != null){
                 manager.enqueue(request);
             } else {
                 manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
-                manager.enqueue(request);
+                manager.enqueue(request); // начинаем загрузку
             }
-
         }
     }
 
