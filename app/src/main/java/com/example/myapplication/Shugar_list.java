@@ -8,8 +8,13 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.LegendRenderer;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Shugar_list extends AppCompatActivity {   // класс истории уровня сахара
@@ -21,6 +26,10 @@ public class Shugar_list extends AppCompatActivity {   // класс истор�
     private Application_vk application_vk = new Application_vk();
     private double level;
     private VK_ID_base vkIdBase;
+    GraphView graph;
+    int i = 1;
+    LineGraphSeries<DataPoint> series;
+    DataPoint[] points;
 
     @Override
     public void onCreate( Bundle savedInstanceState) {  // создать необходимые объекты и активность
@@ -34,7 +43,8 @@ public class Shugar_list extends AppCompatActivity {   // класс истор�
         ListView shugar_list = (ListView)findViewById(R.id.shugarView);
         shugar_list.setAdapter(shugar_adapter);
         vkIdBase = new VK_ID_base(this);
-
+        graph = (GraphView) findViewById(R.id.graph);
+        bildGraph(shugar_db.selectAll());
         shugar_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -43,10 +53,39 @@ public class Shugar_list extends AppCompatActivity {   // класс истор�
         });
     }
 
+    public void bildGraph (ArrayList<Shugar> levels){
+
+        points = new DataPoint[levels.size()];
+
+        for (int i = 0; i < levels.size(); i++){
+            points[i] = new DataPoint(i,levels.get(i).getLevel());
+        }
+
+        series = new LineGraphSeries<>(points);
+
+        // set manual X bounds
+        graph.getViewport().setXAxisBoundsManual(true);
+
+
+        graph.getViewport().setMinX(0);
+
+        graph.getViewport().setMaxX(10);
+
+        // enable scrolling
+        graph.getViewport().setScrollable(true);
+
+        graph.removeAllSeries();
+
+        graph.addSeries(series);
+
+        i++;
+    }
+
     public void addShugar(View view){  // добавить запись
         try {
             level = Double.parseDouble(editText.getText().toString());
             shugar_db.insert(level,getStringDate());
+            bildGraph(shugar_db.selectAll());
             application_vk.sendMSG(getStringDate() + "\n"+ "Новая запись в дневник уровня сахара : " + level,vkIdBase.selectAll());
 
         } catch (NumberFormatException e){
@@ -91,9 +130,12 @@ public class Shugar_list extends AppCompatActivity {   // класс истор�
             count = 0;
 
             Toast.makeText(this,"Запись удалена",Toast.LENGTH_LONG).show();
+
+            bildGraph(shugar_db.selectAll());
         }
         lastPosition = position;
     }
+
 }
 
 

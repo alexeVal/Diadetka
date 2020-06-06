@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="Настройки" android:id="@+id/seting"/>
-    <item android:title="О приложении" android:id="@+id/about"/>
+    <item android:title="Получить отчет" android:id="@+id/about"/>
     <item android:title="Выход" android:id="@+id/exit"/>
 
 </menu>
