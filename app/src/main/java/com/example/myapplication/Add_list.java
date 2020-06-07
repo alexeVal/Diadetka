@@ -91,10 +91,18 @@ public class Add_list extends AppCompatActivity {
             if(datePicker.getMonth() < 10){
                 month = "0" + month;
             }
+            if(datePicker.getDayOfMonth() < 10){
+                day = "0"+Integer.toString(datePicker.getDayOfMonth());
+            } else {
+                day = Integer.toString(datePicker.getDayOfMonth());
+            }
 
-            day = Integer.toString(datePicker.getDayOfMonth());
             hour = Integer.toString(timePicker.getHour());
-            minute = Integer.toString(timePicker.getMinute());
+            if(timePicker.getMinute() >= 10){
+                minute = Integer.toString(timePicker.getMinute());
+            } else {
+                minute = "0"+Integer.toString(timePicker.getMinute());
+            }
 
             return day + "." + month + " " + hour + ":" + minute ;
         }

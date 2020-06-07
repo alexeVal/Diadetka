@@ -34,9 +34,9 @@ public class VK_ID_base { // класс БД с id VK
             return mDataBase.insert(TABLE_NAME, null, cv);
         }
 
-        public void delete(long id) {            // удалить запись
-            mDataBase.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
-        }
+    public void deleteAll() {
+        mDataBase.delete(TABLE_NAME, null, null);
+    }
 
         public ArrayList<Integer> selectAll() {     // получить все записи
             Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
@@ -52,21 +52,6 @@ public class VK_ID_base { // класс БД с id VK
             }
             return arr;
         }
-    public long searchId(int id) {     // получить все записи
-        Cursor mCursor = mDataBase.query(TABLE_NAME, null, null, null, null, null, null);
-        long idw = 0;
-        mCursor.moveToFirst();
-        if (!mCursor.isAfterLast()) {
-            do {
-                int UserId = mCursor.getInt(NUM_COLUMN_VKID);
-                if(id == UserId){
-                    idw = mCursor.getLong(NUM_COLUMN_ID);
-                    Log.d("Тест",Long.toString(idw));
-                }
-            } while (mCursor.moveToNext());
-        }
-        return id;
-    }
 
         private class OpenHelper extends SQLiteOpenHelper { // класс создания БД
 

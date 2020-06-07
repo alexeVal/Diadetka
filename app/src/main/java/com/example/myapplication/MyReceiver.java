@@ -19,6 +19,7 @@ public class MyReceiver extends BroadcastReceiver { //класс приемни�
         List_db list_db = new List_db(context);
         NotificationHelp notification = new NotificationHelp();
         notification.ShowNotification(list_db.getTextForTime(getStringDate()),"Напоминание",NotificationHelp.CLOCK,context);  // показываем уведомление
+        Log.d("тестер",getStringDate());
     }
 
     String getStringDate(){    // получаем текущую дату и время

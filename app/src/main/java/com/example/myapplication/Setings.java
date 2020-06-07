@@ -36,6 +36,9 @@ public class Setings extends AppCompatActivity {   // класс настрое�
             Toast.makeText(this,"Неверный формат! Используйте только цифры.",Toast.LENGTH_LONG).show();
         }
     }
+    public void clearID(View view){ // очищаем базу id
+        vkIdBase.deleteAll();
+    }
     public void back(View view){   // на главный экран
         Intent intent = new Intent(Setings.this,MainActivity.class);
         startActivity(intent);
